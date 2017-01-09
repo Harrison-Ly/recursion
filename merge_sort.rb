@@ -1,19 +1,15 @@
 def merge_sort(array)
-  if array.length == 1
-    array
-  end
+  array if array.length <= 1
   
   if array.length > 1
     a = array[0...(array.length/2)]
     b = array[(array.length/2)..-1]
-
     
     a = merge_sort(a)
     b = merge_sort(b)
 
     array = merge(a, b)
   end
-  
   array
 end
 
@@ -26,16 +22,7 @@ def merge(a, b)
       array << a.shift
     end
   end
-  
-  while a.any?
-    array << a.shift
-  end
-  
-  while b.any?
-    array << b.shift
-  end
-  
-  array
+  array + a + b
 end
 
 #examples
